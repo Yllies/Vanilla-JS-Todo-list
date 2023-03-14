@@ -52,6 +52,10 @@ form button:hover {
     align-items: center;
 }
 
+.todo-input {
+    width: 30vw;
+}
+
 .todo-list {
     min-width: 30%;
     list-style: none;
@@ -112,7 +116,7 @@ form button:hover {
 }
 
 select {
-    /*  */
+
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
