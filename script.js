@@ -13,32 +13,37 @@ filterOption.addEventListener("input", filterTodo);
 
 // Functions
 function addTodo(e) {
+    if (todoInput.value.trim() === '') {
 
-    e.preventDefault();
-    // Pop To-do div
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-    // Create the Li
-    const newTodo = document.createElement("li");
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
-    // Add todo to the localstorage
-    saveLocalTodos(todoInput.value);
-    // Complete button 
-    const completedButton = document.createElement("button");
-    completedButton.innerHTML = '<i class="fa-solid fa-check"></i>'
-    completedButton.classList.add("complete-btn");
-    todoDiv.appendChild(completedButton);
-    // Delete button
-    const deletedButton = document.createElement("button");
-    deletedButton.innerHTML = '<i class="fa-sharp fa-solid fa-trash"></i>'
-    deletedButton.classList.add("delete-btn");
-    todoDiv.appendChild(deletedButton);
-    // Add our To-do to the To-do list
-    todoList.appendChild(todoDiv)
-    // Reset the input after click
-    todoInput.value = "";
+        alert('Le champ de saisie est vide');
+    } else {
+        e.preventDefault();
+        // Pop To-do div
+        const todoDiv = document.createElement("div");
+        todoDiv.classList.add("todo");
+        // Create the Li
+        const newTodo = document.createElement("li");
+        newTodo.innerText = todoInput.value;
+        newTodo.classList.add("todo-item");
+        todoDiv.appendChild(newTodo);
+        // Add todo to the localstorage
+        saveLocalTodos(todoInput.value);
+        // Complete button 
+        const completedButton = document.createElement("button");
+        completedButton.innerHTML = '<i class="fa-solid fa-check"></i>'
+        completedButton.classList.add("complete-btn");
+        todoDiv.appendChild(completedButton);
+        // Delete button
+        const deletedButton = document.createElement("button");
+        deletedButton.innerHTML = '<i class="fa-sharp fa-solid fa-trash"></i>'
+        deletedButton.classList.add("delete-btn");
+        todoDiv.appendChild(deletedButton);
+        // Add our To-do to the To-do list
+        todoList.appendChild(todoDiv)
+        // Reset the input after click
+        todoInput.value = "";
+    }
+
 }
 
 function deleteCheck(e) {
@@ -147,3 +152,4 @@ function removeLocalTodos(todo) {
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
